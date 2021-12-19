@@ -10,7 +10,6 @@ namespace Event.Handlers
     {
         bool Add( List<string> userinfo);
         bool Show();
-        void CreateSavePath( List<string> list);
     }
 
     public class FileHandler : IFileHandler
@@ -52,20 +51,6 @@ namespace Event.Handlers
             }
             catch { return false; }
             
-        }
-
-        public void CreateSavePath( List<string> list)
-        {
-            if (!File.Exists(path))
-            {
-                // Create a file to write to.
-                using (StreamWriter sw = File.CreateText(path))
-                {
-                    sw.WriteLine(list.ToString());
-
-
-                }
-            }
         }
     }
 }
